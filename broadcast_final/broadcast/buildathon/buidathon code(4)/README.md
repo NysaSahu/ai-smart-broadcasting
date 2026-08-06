@@ -1,2 +1,4 @@
-# ai-smart-broadcasting
-AI-enabled smart broadcasting using intelligent switching between unicast, multicast, and broadcast
+#AI-Driven 5G Unicast–Broadcast Decision Framework
+An intelligent network optimization system that dynamically switches between 5G unicast and ATSC 3.0 broadcast delivery in real time. The system uses a physics-based simulator (Cost-231 Hata path loss model) to model urban macrocell conditions: factoring in SINR degradation, congestion, time-aware user load, and stochastic events like flash crowds and channel fading. At each timestep, a utility-based decision engine computes U = α·SC + β·SE + γ·(1−Congestion) for both modes, with context-aware dynamic weights that shift based on network load and time of day — favoring broadcast during peak congestion and unicast during low-demand periods.
+
+The decision engine uses a teacher–student ML architecture: the utility model acts as a teacher to generate labeled training data, which trains a Logistic Regression model to imitate and accelerate decisions at inference time. A separate congestion prediction model enables proactive offloading before load peaks. Every decision includes an explainability output : utility scores, KPIs, and the winning mode ,making the system fully transparent. Results are visualized through a live Streamlit dashboard.
